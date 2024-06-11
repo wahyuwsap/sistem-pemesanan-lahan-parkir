@@ -143,6 +143,16 @@ int main() {
 
 
 void displayTitle() {
+    cout << "                     _                                _                    " << endl;
+    cout << "                    ( )     _                        (_ )  _               " << endl;
+    cout << " _ _      _ _  _ __ | |/') (_) _ __       _     ___   | | (_)  ___     __  " << endl;
+    cout << "( '_`\\  /'_` )( '__)| , <  | |( '__)    /'_`\\ /' _ `\\ | | | |/' _ `\\ /'__`\\" << endl;
+    cout << "| (_) )( (_| || |   | |\\`\\ | || |      ( (_) )| ( ) | | | | || ( ) |(  ___/ " << endl;
+    cout << "| ,__/'`\\__,_)(_)   (_) (_)(_)(_)      `\\___/'(_) (_)(___)(_)(_) (_)`\\____) " << endl;
+    cout << "| |                                                                         " << endl;
+    cout << "(_)                                                                         " << endl<< endl;
+    
+
     cout << "===============================" << endl;
     cout << "  Sistem Pemesanan Lahan Parkir " << endl;
     cout << "===============================" << endl;
@@ -297,8 +307,12 @@ void handleBookingQueue() {
     while (!bookingQueue.empty()) {
         cout << "Memproses: " << bookingQueue.front() << endl;
         bookingQueue.pop();
+        
+         cout << endl<< endl; 
+   		 cout << "Enter untuk ke menu utama" << endl;  
     }
 }
+
 
 void divideAndConquerSearch(int start, int end, const string& location) {
     if (start > end) return;
