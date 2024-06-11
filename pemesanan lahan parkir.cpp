@@ -228,3 +228,12 @@ void searchParkingLot() {
             found = true; 
         }
     }
+    if (!found) {
+        cout << "Tidak ditemukan" << endl; 
+    }
+
+    cout << endl << endl;
+    cout << "Tekan 5 untuk kembali" << endl; 
+}
+
+
