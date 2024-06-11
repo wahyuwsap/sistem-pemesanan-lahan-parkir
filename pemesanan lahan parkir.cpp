@@ -313,3 +313,8 @@ void divideAndConquerSearch(int start, int end, const string& location) {
     divideAndConquerSearch(start, mid - 1, location);
     divideAndConquerSearch(mid + 1, end, location);
 }
+
+void clearScreen() {
+    
+    cout << "\033[2J\033[1;1H"; 
+}
