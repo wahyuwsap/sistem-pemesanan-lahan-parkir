@@ -212,3 +212,19 @@ bool loginUser(char* loggedInUser) {
         return false;
     }
 }
+
+void searchParkingLot() {
+    string location;
+    cout << "Masukkan lokasi lahan parkir yang dicari: ";
+    cin.ignore();
+    getline(cin, location);
+
+    bool found = false; 
+    cout << "Daftar Lahan Parkir yang Tersedia di " << location << ":" << endl;
+
+    for (size_t i = 0; i < parkingLots.size(); ++i) {
+        if (parkingLots[i].location == location) {
+            cout << "- " << parkingLots[i].location << " - " << parkingLots[i].time << " - Rp" << parkingLots[i].price << endl;
+            found = true; 
+        }
+    }
