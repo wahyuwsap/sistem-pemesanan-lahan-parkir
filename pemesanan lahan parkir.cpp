@@ -300,3 +300,16 @@ void handleBookingQueue() {
     }
 }
 
+void divideAndConquerSearch(int start, int end, const string& location) {
+    if (start > end) return;
+
+    int mid = start + (end - start) / 2;
+    vector<ParkingLot> parkingVector(parkingLots.begin(), parkingLots.end());
+
+    if (parkingVector[mid].location == location) {
+        cout << mid + 1 << ". " << parkingVector[mid].location << " - " << parkingVector[mid].time << " - Rp" << parkingVector[mid].price << endl;
+    }
+
+    divideAndConquerSearch(start, mid - 1, location);
+    divideAndConquerSearch(mid + 1, end, location);
+}
