@@ -194,3 +194,21 @@ void registerUser() {
     cout << "Registrasi berhasil!" << endl;
     history.push("Registrasi user: " + string(username));
 }
+
+bool loginUser(char* loggedInUser) {
+    char username[50], password[50];
+    cout << "Masukkan username: ";
+    cin >> username;
+    cout << "Masukkan password: ";
+    cin >> password;
+
+    int userIndex = findUserIndex(username);
+    if (userIndex != -1 && strcmp(users[userIndex].password, password) == 0) {
+        strcpy(loggedInUser, username);
+        cout << "Login berhasil!" << endl;
+        return true;
+    } else {
+        cout << "Username atau password salah!" << endl;
+        return false;
+    }
+}
