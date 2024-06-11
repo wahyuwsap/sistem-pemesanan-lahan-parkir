@@ -254,4 +254,42 @@ void displayAvailableParkingLots() {
     cout << "Tekan 5 untuk kembali" << endl; 
 }
 
+void bookParkingSlot(const char* loggedInUser) {
+    int parkingLotIndex, slotNumber;
+    displayAvailableParkingLots();
+    cout << "Pilih nomor lahan parkir: ";
+    cin >> parkingLotIndex;
+    --parkingLotIndex;  
+
+    if (parkingLotIndex < 0 || parkingLotIndex >= parkingLots.size()) {
+        cout << "Pilihan lahan parkir tidak valid!" << endl;
+        return;
+    }
+
+    cout << "Pilih nomor slot (1-" << parkingLots[parkingLotIndex].slots.size() << "): ";
+    cin >> slotNumber;
+    --slotNumber;  
+
+    if (slotNumber < 0 || slotNumber >= parkingLots[parkingLotIndex].slots.size()) {
+        cout << "Pilihan slot tidak valid!" << endl;
+        return;
+    }
+
+    if (parkingLots[parkingLotIndex].slots[slotNumber]) {
+        cout << "Slot sudah dipesan!" << endl;
+        return;
+    }
+
+    parkingLots[parkingLotIndex].slots[slotNumber] = true;
+    clearScreen();
+    cout << "Pemesanan berhasil! Berikut adalah tiket parkir Anda:" << endl;
+    cout << "Lokasi: " << parkingLots[parkingLotIndex].location << endl;
+    cout << "Waktu: " << parkingLots[parkingLotIndex].time << endl;
+    cout << "Slot: " << slotNumber + 1 << endl;
+    cout << "Harga: Rp" << parkingLots[parkingLotIndex].price << endl;
+    cout << "Barcode: ||||||| | || || | ||" << endl;  
+
+    history.push("Pemesanan slot oleh: " + string(loggedInUser));
+    bookingQueue.push("Pemesanan slot oleh: " + string(loggedInUser));
+}
 
