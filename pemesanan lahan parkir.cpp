@@ -236,4 +236,22 @@ void searchParkingLot() {
     cout << "Tekan 5 untuk kembali" << endl; 
 }
 
+void displayAvailableParkingLots() {
+    cout << "Daftar Lahan Parkir yang Tersedia:" << endl;
+    for (size_t i = 0; i < parkingLots.size(); ++i) {
+        cout << i + 1 << ". " << parkingLots[i].location << " - " << parkingLots[i].time << " - Rp" << parkingLots[i].price << endl;
+        cout << "   Ketersediaan slot: ";
+        for (size_t j = 0; j < parkingLots[i].slots.size(); ++j) {
+            if (parkingLots[i].slots[j]) {
+                cout << "X ";  
+            } else {
+                cout << (j + 1) << " ";  
+            }
+        }
+        cout << endl;
+    }
+    cout << endl << endl;
+    cout << "Tekan 5 untuk kembali" << endl; 
+}
+
 
