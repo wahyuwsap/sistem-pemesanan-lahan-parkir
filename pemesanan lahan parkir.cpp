@@ -42,6 +42,25 @@ void initializeParkingLots() {
     
 }
 
+vector<User> users;            
+stack<string> history;         
+queue<string> bookingQueue;    
+
+
+int findUserIndex(const char* username);
+void registerUser();
+bool loginUser(char* loggedInUser);
+void searchParkingLot();
+void displayAvailableParkingLots();
+void bookParkingSlot(const char* loggedInUser);
+void divideAndConquerSearch(int start, int end, const string& location);
+void handleBookingQueue();
+void displayTitle();
+void displayMainMenu();
+void displayUserMenu();
+void clearScreen();
+void waitForEnter();
+
 
 
 
