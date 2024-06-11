@@ -293,3 +293,10 @@ void bookParkingSlot(const char* loggedInUser) {
     bookingQueue.push("Pemesanan slot oleh: " + string(loggedInUser));
 }
 
+void handleBookingQueue() {
+    while (!bookingQueue.empty()) {
+        cout << "Memproses: " << bookingQueue.front() << endl;
+        bookingQueue.pop();
+    }
+}
+
