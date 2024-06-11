@@ -142,3 +142,55 @@ int main() {
 }
 
 
+void displayTitle() {
+    cout << "===============================" << endl;
+    cout << "  Sistem Pemesanan Lahan Parkir " << endl;
+    cout << "===============================" << endl;
+}
+
+
+void displayMainMenu() {
+    cout << "Menu Awal:" << endl;
+    cout << "1. Registrasi" << endl;
+    cout << "2. Login" << endl;
+    cout << "3. Keluar" << endl;
+    cout << "===============================" << endl;
+}
+
+
+void displayUserMenu() {
+    cout << "Menu:" << endl;
+    cout << "1. Cari Lahan Parkir" << endl;
+    cout << "2. Lihat Lahan Parkir yang Tersedia" << endl;
+    cout << "3. Pesan Slot Parkir" << endl;
+    cout << "4. Logout" << endl;
+    cout << "===============================" << endl;
+}
+
+
+int findUserIndex(const char* username) {
+    for (size_t i = 0; i < users.size(); ++i) {
+        if (strcmp(users[i].username, username) == 0) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+void registerUser() {
+    char username[50], password[50];
+    cout << "Masukkan username: ";
+    cin >> username;
+    cout << "Masukkan password: ";
+    cin >> password;
+
+    if (findUserIndex(username) != -1) {
+        cout << "Username sudah terdaftar!" << endl;
+        return;
+    }
+
+    users.push_back(User(username, password));
+    cout << "Registrasi berhasil!" << endl;
+    history.push("Registrasi user: " + string(username));
+}
