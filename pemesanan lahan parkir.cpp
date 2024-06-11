@@ -62,5 +62,83 @@ void clearScreen();
 void waitForEnter();
 
 
+int main() {
+    int choice;
+    initializeParkingLots();
+    char loggedInUser[50] = "";
+
+    while (true) {
+        clearScreen();
+        displayTitle();
+        if (strlen(loggedInUser) == 0) {
+            
+            displayMainMenu();
+            cout << "Pilih opsi: ";
+            cin >> choice;
+
+            switch (choice) {
+                case 1:
+                    clearScreen();
+                    registerUser();
+                    waitForEnter();
+                    break;
+                case 2:
+                    clearScreen();
+                    if (loginUser(loggedInUser)) {
+                        cout << "Selamat datang, " << loggedInUser << "!" << endl;
+                    }
+                    waitForEnter();
+                    break;
+                case 3:
+                    cout << "Terima kasih telah menggunakan sistem pemesanan lahan parkir!" << endl;
+                    return 0;
+                default:
+                    cout << "Pilihan tidak valid!" << endl;
+                    waitForEnter();
+            }
+        } else {
+            
+            displayUserMenu();
+            cout << "Pilih opsi: ";
+            cin >> choice;
+
+            switch (choice) {
+                case 1:
+                    clearScreen();
+                    searchParkingLot();
+                    waitForEnter();
+                    break;
+                case 2:
+                    clearScreen();
+                    displayAvailableParkingLots();
+                    waitForEnter();
+                    break;
+                case 3:
+                    clearScreen();
+                    bookParkingSlot(loggedInUser);
+                    handleBookingQueue();
+                    waitForEnter();
+                    break;
+                case 4:
+                    clearScreen();
+                    strcpy(loggedInUser, ""); 
+                    cout << "Logout berhasil!" << endl;
+                    waitForEnter();
+                    break;
+                case 5:
+                    clearScreen();
+                    cout << "Kembali ke menu sebelumnya." << endl;
+                    waitForEnter();
+                    break;
+                default:
+                    clearScreen();
+                    cout << "Pilihan tidak valid!" << endl;
+                    waitForEnter();
+            }
+        }
+    }
+
+    return 0;
+}
 
 
