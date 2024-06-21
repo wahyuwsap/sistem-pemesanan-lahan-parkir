@@ -224,21 +224,11 @@ void searchParkingLot() {
     cin.ignore();
     getline(cin, location);
 
-    bool found = false; 
     cout << "Daftar Lahan Parkir yang Tersedia di " << location << ":" << endl;
-
-    for (size_t i = 0; i < parkingLots.size(); ++i) {
-        if (parkingLots[i].location == location) {
-            cout << "- " << parkingLots[i].location << " - " << parkingLots[i].time << " - Rp" << parkingLots[i].price << endl;
-            found = true; 
-        }
-    }
-    if (!found) {
-        cout << "Tidak ditemukan" << endl; 
-    }
+    divideAndConquerSearch(0, parkingLots.size() - 1, location);
 
     cout << endl << endl;
-    cout << "Tekan 5 untuk kembali" << endl; 
+    cout << "Tekan 5 untuk kembali" << endl;
 }
 
 void displayAvailableParkingLots() {
