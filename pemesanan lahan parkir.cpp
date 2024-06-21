@@ -125,11 +125,6 @@ int main() {
                     cout << "Logout berhasil!" << endl;
                     waitForEnter();
                     break;
-                case 5:
-                    clearScreen();
-                    cout << "Kembali ke menu sebelumnya." << endl;
-                    waitForEnter();
-                    break;
                 default:
                     clearScreen();
                     cout << "Pilihan tidak valid!" << endl;
